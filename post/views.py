@@ -1,8 +1,10 @@
 from django.shortcuts import render,HttpResponse
+from .models import Post
 
 # Create your views here.
 def post_index(request):
-    return HttpResponse('burası anasayfa')
+    posts = Post.objects.all()
+    return render(request,'post/index.html',{'posts': posts })
 
 def post_detail(request):
     return HttpResponse('burası detay sayfası')
