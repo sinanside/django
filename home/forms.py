@@ -55,7 +55,7 @@ class RegisterForm(forms.Form):
             }
         )
     )
-    username = forms.CharField(
+    email = forms.CharField(
         widget=forms.EmailInput(
             attrs={
                 'class': 'form-control',
