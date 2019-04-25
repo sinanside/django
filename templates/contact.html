@@ -12,8 +12,24 @@
     <title>Engin - umut Anasayfamız</title>
 </head>
 <body>
-<h1>Engin - Umut bu bizim anasayfamızdır</h1>
+<div class="text-center">
+    <h1>{{ title }}</h1>
+    <h1>Bu bizim form sayfamızdır.</h1>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <p>{{ content }}</p>
+            <div class="col-sm-6 col-12">
+                <form method="post"> {% csrf_token %}
+                    <input type="text" class="form-control" name="fullname" placeholder="İsim">
+                    <button type="submit" class="btn btn-default">Gönder</button>
 
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

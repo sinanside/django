@@ -18,6 +18,7 @@ def about_view(request):
 
 def contact_view(request):
     data = {
-        'isim': 'Umut'
+        'title': 'İletişim sayfası',
+        'content': 'İletişim formumuzu doldurunuz.'
     }
     return render(request, 'contact.html', data)
