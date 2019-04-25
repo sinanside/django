@@ -91,7 +91,7 @@ class RegisterForm(forms.Form):
         return username
 
     def clean_email(self):
-        username = self.cleaned_data.get("email")
+        email = self.cleaned_data.get("email")
         qs = User.objects.filter(email=email)
         if qs.exist():
             raise forms.ValidationError("Email sistemde kayıtlı")
