@@ -41,8 +41,7 @@ def login_page(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            data['form'] = LoginForm()
-            return HttpResponseRedirect("/login")
+            return HttpResponseRedirect("/")
         else:
             print("hata")
 
