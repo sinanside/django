@@ -55,6 +55,14 @@ class RegisterForm(forms.Form):
             }
         )
     )
+    username = forms.CharField(
+        widget=forms.EmailInput(
+            attrs={
+                'class': 'form-control',
+                'placeholder': 'mail adresiniz'
+            }
+        )
+    )
     password = forms.CharField(
         widget=forms.PasswordInput(
             attrs={
@@ -63,11 +71,11 @@ class RegisterForm(forms.Form):
             }
         )
     )
-    password2 = forms.CharField(
-        widget=forms.PasswordInput(
+    password2 = forms.CharField(label="Şifre Tekrarı",
+                                widget=forms.PasswordInput(
             attrs={
                 'class': 'form-control',
                 'placeholder': 'Şifreniz'
             }
         )
-    )
+                                )

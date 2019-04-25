@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponseRedirect
-from .forms import ContactForm, LoginForm
+from .forms import ContactForm, LoginForm, RegisterForm
 from django.contrib.auth import authenticate, login
 # Create your views here.
 
@@ -47,3 +47,13 @@ def login_page(request):
             print("hata")
 
     return render(request, 'auth/login.html', data)
+
+
+def register_page(request):
+    register_form = RegisterForm(request.POST or None)
+    data = {
+        'title': 'Kayıt sayfası',
+        'content': 'Kayıt sayfamız.',
+        'form': register__form
+    }
+    return render(request, 'auth/register.html', data)
