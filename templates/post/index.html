@@ -5,11 +5,11 @@
     <title>Postlarımız</title>
 </head>
 <body>
-<strong>Postlarımızı Listeleyelim.</strong><br>
+<strong>Postlarımızı Listeleyelim.</strong><br><br>
 {% for post in posts  %}
     <strong>ID: </strong>{{ post.id }} <br/>
     <strong>Başlık: </strong>{{ post.title }} <br/>
-    <strong>İçerik: </strong>{{ post.content }} <br/>
+    <strong>İçerik: </strong>{{ post.content }} <br/><br>
 {% endfor %}
 </body>
 </html>
