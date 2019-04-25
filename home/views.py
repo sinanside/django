@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from forms import ContactForm
 # Create your views here.
 
 
@@ -17,8 +18,10 @@ def about_view(request):
 
 
 def contact_view(request):
+    contact_form = ContactForm()
     data = {
         'title': 'İletişim sayfası',
-        'content': 'İletişim formumuzu doldurunuz.'
+        'content': 'İletişim formumuzu doldurunuz.',
+        'form': contact_form
     }
     return render(request, 'contact.html', data)
