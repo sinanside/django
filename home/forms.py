@@ -10,5 +10,18 @@ class ContactForm(forms.Form):
             }
         )
     )
-    email = forms.EmailField()
-    content = forms.CharField()
+    email = forms.EmailField(
+        widget=forms.EmailInput(
+            attrs={
+                'class': 'form-control',
+                'placeholder': 'Email adresiniz'
+            }
+        ))
+    content = forms.CharField(
+        widget=forms.TextArea(
+            attrs={
+                'class': 'form-control',
+                'placeholder': 'Mesajınız'
+            }
+        )
+    )
