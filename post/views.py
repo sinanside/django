@@ -4,10 +4,10 @@ from .models import Post
 # Create your views here.
 def post_index(request):
     posts = Post.objects.all()
-    return render(request,'post/index.html',{'posts': posts })
+    return render(request, 'post/index.html', {'posts': posts})
 
 def post_detail(request):
-    return HttpResponse('burası detay sayfası')
+    return HttpResponse('burası detay sayfasımı acaba')
 
 def post_create(request):
     return HttpResponse('burası oluşturma sayfası')
