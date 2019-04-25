@@ -2,6 +2,6 @@ from django import forms
 
 
 class ContactForm(forms.Form):
-    fullname = forms.Charfield()
+    fullname = forms.CharField()
     email = forms.EmailField()
     content = forms.CharField()
