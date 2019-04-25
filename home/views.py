@@ -1,6 +1,6 @@
-from django.shortcuts import render, HttpResponse
-
+from django.shortcuts import render
 # Create your views here.
+
 
 def home_view(request):
     data = {
@@ -13,11 +13,11 @@ def about_view(request):
     data = {
         'isim': 'Umut'
     }
-    return render(request, 'home.html', data)
+    return render(request, 'about.html', data)
 
 
 def contact_view(request):
     data = {
         'isim': 'Umut'
     }
-    return render(request, 'home.html', data)
+    return render(request, 'contact.html', data)
