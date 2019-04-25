@@ -7,3 +7,17 @@ def home_view(request):
     'isim': 'Umut'
     }
     return render(request,'home.html',data)
+
+
+def about_view(request):
+    data = {
+        'isim': 'Umut'
+    }
+    return render(request, 'home.html', data)
+
+
+def contact_view(request):
+    data = {
+        'isim': 'Umut'
+    }
+    return render(request, 'home.html', data)
