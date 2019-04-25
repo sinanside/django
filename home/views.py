@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponseRedirect
 from .forms import ContactForm, LoginForm
+from django.contrib.auth import authenticate, login
 # Create your views here.
 
 
@@ -29,11 +30,20 @@ def contact_view(request):
 
 def login_page(request):
     login_form = LoginForm(request.POST or None)
-    if login_form.is_valid():
-        print(login_form.cleaned_data)
     data = {
         'title': 'Login sayfası',
         'content': 'Lütfen giriş yapınız.',
         'form': login_form
     }
+    if login_form.is_valid():
+        username = login_form.cleaned_data.get("username")
+        password = login_form.cleaned_data.get("password")
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            data['form'] = LoginForm()
+            return HttpResponseRedirect("/login")
+        else:
+            print("hata")
+
     return render(request, 'auth/login.html', data)
