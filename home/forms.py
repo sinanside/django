@@ -86,14 +86,14 @@ class RegisterForm(forms.Form):
     def clean_username(self):
         username = self.cleaned_data.get("username")
         qs = User.objects.filter(username=username)
-        if qs.exist():
+        if qs.exists():
             raise forms.ValidationError("Kullanıcı adı sistemde kayıtlı")
         return username
 
     def clean_email(self):
         email = self.cleaned_data.get("email")
         qs = User.objects.filter(email=email)
-        if qs.exist():
+        if qs.exists():
             raise forms.ValidationError("Email sistemde kayıtlı")
         return email
 
