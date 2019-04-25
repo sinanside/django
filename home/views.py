@@ -8,7 +8,9 @@ def home_view(request):
     data = {
     'isim': 'Umut'
     }
-    return render(request,'home.html',data)
+    if request.user.is_authenticated():
+        data["gizli_icerik"] = "Çok gizli içerik"
+    return render(request, 'home.html', data)
 
 
 def about_view(request):
