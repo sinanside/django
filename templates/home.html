@@ -13,11 +13,13 @@
 </head>
 <body>
 <h1>Engin - Umut bu bizim anasayfamızdır</h1>
+{% if request.user.is_authenticated %}
 <div class="row">
     <div class="col">
         {{ gizli_icerik }}
     </div>
 </div>
+{% endif %}
 
 
 <!-- Optional JavaScript -->

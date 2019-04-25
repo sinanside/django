@@ -6,10 +6,9 @@ from django.contrib.auth import authenticate, login
 
 def home_view(request):
     data = {
-    'isim': 'Umut'
+        'isim': 'Umut',
+        'gizli_icerik': "Çok gizli içerik"
     }
-    if request.user.is_authenticated():
-        data["gizli_icerik"] = "Çok gizli içerik"
     return render(request, 'home.html', data)
 
 
