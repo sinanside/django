@@ -54,6 +54,6 @@ def register_page(request):
     data = {
         'title': 'Kayıt sayfası',
         'content': 'Kayıt sayfamız.',
-        'form': register__form
+        'form': register_form
     }
     return render(request, 'auth/register.html', data)
