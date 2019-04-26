@@ -23,7 +23,7 @@ urlpatterns = [
     url(r'^$', home_view),
     url(r'^about/$', about_view),
     url(r'^login/$', login_page),
-    url(r'^products/$', ProductListView),
+    url(r'^products/$', ProductListView.as_view()),
     url(r'^products-fbv/$', product_list_view),
     url(r'^register/$', register_page),
     url(r'^contact/$', contact_view),
