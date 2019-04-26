@@ -1,11 +1,12 @@
 from django.shortcuts import render
-from django.views.generic.list import ListView
+from django.views.generic import ListView
 
 from .models import Product
 
 
 class ProductListView(ListView):
     queryset = Product.objects.all()
+    template_name = "products/list.html"
 
 
 def product_list_view(request):
@@ -13,4 +14,4 @@ def product_list_view(request):
     context = {
         'object_list': queryset
     }
-    return render(request, "product/product_list_view.html", context)
+    return render(request, "product/list.html", context)
