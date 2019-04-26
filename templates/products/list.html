@@ -5,6 +5,10 @@
     <title>Title</title>
 </head>
 <body>
-{{ qs }}
+{% for obj in object_list %}
+
+    {{ obj.title }}
+
+{% endfor %}
 </body>
 </html>
