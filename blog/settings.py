@@ -85,6 +85,9 @@ DATABASES = {
         'USER': 'dizaynschool',
         'PASSWORD': 'pythonmysql2019',
         'HOST': 'dizaynschool.mysql.pythonanywhere-services.com',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+        },
     }
 }
 
