@@ -1,7 +1,7 @@
 from django.db import models
 import random
 import os
-from django.db.models.signals import pre_save, post_save
+from django.db.models.signals import pre_save
 from .utils import unique_slug_generator
 
 # Create your models here.
@@ -22,6 +22,31 @@ def upload_image_path(filename):
         final_filename=final_filename)
 
 
+class ProductQuerySet(models.query.QuerySet):
+    def active(self):
+        return self.filter(active=True)
+
+    def featured(self):
+        return self.filter(featured=True, active=True)
+
+
+class ProductManager(models.Manager):
+    def get_queryset(self):
+        return ProductQuerySet(self.model, using=self._db)
+
+    def all(self):
+        return self.get_queryset().active()
+
+    def featured(self):
+        return self.get_queryset().featured()
+
+    def get_by_id(self, id):
+        qs = self.get_queryset().filter(id=id)
+        if qs.count == 1:
+            return qs.first()
+        return None
+
+
 class Product(models.Model):
     title = models.CharField(max_length=120)
     slug = models.SlugField(unique=True, blank=True)
@@ -31,6 +56,11 @@ class Product(models.Model):
     featured = models.BooleanField(default=False)
     active = models.BooleanField(default=True)
 
+    objects = ProductManager()
+
+    def get_absolute_url(self):
+        return "/products/{slug}/".format(slug=self.slug)
+
     def __str__(self):
         return self.title
 
@@ -39,8 +69,7 @@ class Product(models.Model):
 
 
 def product_pre_save_receiver(sender, instance, *args, **kwargs):
-    if not instance.slug:
-        instance.slug = unique_slug_generator(instance)
+    instance.slug = unique_slug_generator(instance)
 
 
 pre_save.connect(product_pre_save_receiver, sender=Product)
