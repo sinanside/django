@@ -25,9 +25,10 @@ class ProductDetailView(DetailView):
     queryset = Product.objects.all()
     template_name = "products/detail.html"
 
-    # def get_context_data(self, **kwargs):
-    #    data = super(ProductListView, self).get_context_data(**kwargs)
-    #    return data
+    def get_context_data(self, *args, **kwargs):
+        data = super(ProductDetailView, self).get_context_data(*args, **kwargs)
+        data['test'] = 555
+        return data
 
 
 def product_detail_view(request, pk=None):
