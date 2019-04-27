@@ -22,7 +22,7 @@ def upload_image_path(instance, filename):
 
 class Product(models.Model):
     title = models.CharField(max_length=120)
-    slug = models.SlugField()
+    slug = models.SlugField(default=123)
     description = models.TextField()
     price = models.DecimalField(decimal_places=2, max_digits=20, null=True)
     image = models.ImageField(verbose_name='Resim', upload_to=upload_image_path, null=True, blank=True)
