@@ -5,5 +5,5 @@ from .views import (ProductListView,
 
 urlpatterns = [
     url(r'^products/$', ProductListView.as_view()),
-    url(r'^(?P<slug>\[\w-]+)/$', ProductDetailSlugView.as_view()),
+    url(r'^(?P<slug>[\w-]+)/$', ProductDetailSlugView.as_view()),
 ]
