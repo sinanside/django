@@ -16,7 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.conf.urls import url, include
 from home.views import home_view, about_view, contact_view, login_page, register_page
-from products.views import ProductListView, product_list_view, ProductDetailView, product_detail_view
+from products.views import ProductListView, product_list_view, ProductDetailView, product_detail_view, \
+    ProductDetailSlugView
 
 urlpatterns = [
     url(r'admin/', admin.site.urls),
@@ -26,6 +27,7 @@ urlpatterns = [
     url(r'^products/$', ProductListView.as_view()),
     url(r'^products-fbv/$', product_list_view),
     url(r'^products/(?P<pk>\d+)/$', ProductDetailView.as_view()),
+    url(r'^products/(?P<slug>\[\w-]+)/$', ProductDetailSlugView.as_view()),
     url(r'^products-fbv/(?P<pk>\d+)/$', product_detail_view),
     url(r'^register/$', register_page),
     url(r'^contact/$', contact_view),

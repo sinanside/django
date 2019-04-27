@@ -1,6 +1,8 @@
 from django.db import models
 import random
 import os
+from django.db.models.signals import pre_save, post_save
+from .utils import unique_slug_generator
 
 # Create your models here.
 
@@ -11,7 +13,7 @@ def get_filename_ext(filepath):
     return name, ext
 
 
-def upload_image_path(instance, filename):
+def upload_image_path(filename):
     new_filename = random.randint(1, 3910209312)
     name, ext = get_filename_ext(filename)
     final_filename = '{new_filename}{ext}'.format(new_filename=new_filename, ext=ext)
@@ -34,3 +36,11 @@ class Product(models.Model):
 
     def __unicode__(self):
         return self.title
+
+
+def product_pre_save_receiver(sender, instance, *args, **kwargs):
+    if not instance.slug:
+        instance.slug = unique_slug_generator()
+
+
+pre_save.connect(product_pre_save_receiver, sender=Product)
