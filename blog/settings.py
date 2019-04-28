@@ -33,6 +33,10 @@ INSTALLED_APPS = [
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
+SUIT_CONFIG = {
+    'ADMIN_NAME': 'Dizaynschool Admin Panel'
+}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
