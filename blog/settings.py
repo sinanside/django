@@ -34,6 +34,44 @@ INSTALLED_APPS = [
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
+BATON = {
+    'SITE_HEADER': 'Baton',
+    'SITE_TITLE': 'Baton',
+    'INDEX_TITLE': 'Site administration',
+    'SUPPORT_HREF': 'https://github.com/otto-torino/django-baton/issues',
+    'COPYRIGHT': 'copyright © 2017 <a href="https://www.otto.to.it">Otto srl</a>',  # noqa
+    'POWERED_BY': '<a href="https://www.otto.to.it">Otto srl</a>',
+    'CONFIRM_UNSAVED_CHANGES': True,
+    'SHOW_MULTIPART_UPLOADING': True,
+    'MENU': (
+        {'type': 'title', 'label': 'main', 'apps': ('auth',)},
+        {
+            'type': 'app',
+            'name': 'auth',
+            'label': 'Authentication',
+            'icon': 'fa fa-lock',
+            'models': (
+                {
+                    'name': 'user',
+                    'label': 'Users'
+                },
+                {
+                    'name': 'group',
+                    'label': 'Groups'
+                },
+            )
+        },
+        {'type': 'title', 'label': 'Contents', 'apps': ('flatpages',)},
+        {'type': 'model', 'label': 'Pages', 'name': 'flatpage', 'app': 'flatpages'},
+        {'type': 'free', 'label': 'Custom Link', 'url': 'http://www.google.it',
+         'perms': ('flatpages.add_flatpage', 'auth.change_user')},
+    ),
+    'ANALYTICS': {
+        'CREDENTIALS': os.path.join(BASE_DIR, 'credentials.json'),
+        'VIEW_ID': '12345678',
+    }
+}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
