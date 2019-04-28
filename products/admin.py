@@ -1,5 +1,4 @@
-# from django.contrib import admin
-from baton.autodiscover import admin
+from django.contrib import admin
 
 # Register your models here.
 
