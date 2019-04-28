@@ -15,6 +15,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = [u'dizaynschool.pythonanywhere.com']
 
+SUIT_CONFIG = {
+    'ADMIN_NAME': 'Dizaynschool Admin Panel'
+}
 
 # Application definition
 
@@ -32,10 +35,6 @@ INSTALLED_APPS = [
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-
-SUIT_CONFIG = {
-    'ADMIN_NAME': 'Dizaynschool Admin Panel'
-}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
