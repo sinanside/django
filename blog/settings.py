@@ -19,6 +19,7 @@ ALLOWED_HOSTS = [u'dizaynschool.pythonanywhere.com']
 # Application definition
 
 INSTALLED_APPS = [
+    'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
