@@ -16,7 +16,13 @@ DEBUG = True
 ALLOWED_HOSTS = [u'dizaynschool.pythonanywhere.com']
 
 SUIT_CONFIG = {
-    'ADMIN_NAME': 'Dizaynschool Admin Panel'
+    'ADMIN_NAME': 'Dizaynschool Admin Panel',
+    'MENU': (
+        'sites',
+        {'app': 'auth', 'icon': 'icon-lock', 'models': ('user', 'group')},
+        {'label': 'Settings', 'icon': 'icon-cog', 'models': ('auth.user', 'auth.group')},
+        {'label': 'Support', 'icon': 'icon-question-sign', 'url': '/support/'},
+    ),
 }
 
 # Application definition
