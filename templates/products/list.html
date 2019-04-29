@@ -30,7 +30,7 @@
                         <td></td>
                         <td><a href='{{ obj.get_absolute_url }}'>{{ obj.title }}</a></td>
                         <td>{{ obj.description }}</td>
-                        <td> {% if object.image %}<img src='{{ obj.image.url }}' class="img-fluid">{% endif %}</td>
+                        <td> {% if obj.image %}<img src='{{ obj.image.url }}' class="img-fluid">{% endif %}</td>
                     </tr>
                 {% endfor %}
 
