@@ -1880,7 +1880,9 @@
 
 
                     <!--Begin::Section-->
-                    <div class="row">
+
+                    {% block content %}
+                        <div class="row">
                         <div class="col-xl-8">
 
 
@@ -1890,6 +1892,7 @@
 
                         </div>
                     </div>
+                    {% endblock %}
 
                     <!--End::Section-->
 
