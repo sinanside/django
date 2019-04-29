@@ -1,14 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-{% for obj in object_list %}
+{% extends "admin/base.html" %}
+{% block content %}
+    <div class="kt-section">
+												<span class="kt-section__info">
+													Tablo
+												</span>
+        <div class="kt-section__content">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Başlık</th>
+                    <th>Detay</th>
+                    <th>Resim</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for obj in object_list %}
+                    <tr>
+                        <td><a href='{{ obj.get_absolute_url }}'>{{ obj.title }}</a></td>
+                        <td>{{ obj.description }}</td>
+                        <td><img src='{{ object.image.url }}' class="img-fluid"></td>
+                    </tr>
+                {% endfor %}
 
-    <a href='{{ obj.get_absolute_url }}'>{{ obj.title }}</a> <br>
-
-{% endfor %}
-</body>
-</html>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
