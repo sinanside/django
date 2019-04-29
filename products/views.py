@@ -45,7 +45,7 @@ class ProductDetailView(DetailView):
 
 class ProductDetailSlugView(DetailView):
     queryset = Product.objects.all()
-    template_name = "admin/base.html"
+    template_name = "products/detail.html"
 
     def get_context_data(self, *args, **kwargs):
         data = super(ProductDetailSlugView, self).get_context_data(*args, **kwargs)
