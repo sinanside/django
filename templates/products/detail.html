@@ -1,10 +1,21 @@
 {% extends "admin/base.html" %}
 
-
 {% block content %}
-{{ object.title }} <br>
-{{ object.description }} <br>
-{% if object.image %}
-<img src='{{ object.image.url }}' class="img-fluid"> <br><br>
-{% endif %}
+    <div class="row">
+        <div class="col-xl-8">
+
+            {{ object.title }} <br>
+            {{ object.description }} <br>
+            {% if object.image %}
+                <img src='{{ object.image.url }}' class="img-fluid"> <br><br>
+            {% endif %}
+
+        </div>
+        <div class="col-xl-4">
+
+
+        </div>
+    </div>
 {% endblock %}
+
+
