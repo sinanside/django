@@ -5,6 +5,7 @@ from home.views import home_view, about_view, contact_view, login_page, register
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home_view),
+    url(r'^home/', include('home.urls')),
     url(r'^about/$', about_view),
     url(r'^login/$', login_page),
     url(r'^register/$', register_page),

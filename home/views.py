@@ -11,6 +11,26 @@ def home_view(request):
     }
     return render(request, 'home.html', data)
 
+def ledyaksondur_view(request):
+    data = {
+        'isim': 'Umut',
+        'gizli_icerik': "Çok gizli içerik"
+    }
+    return render(request, 'ledyaksondur.html', data)
+
+def python_page(request):
+    data = {
+        'isim': 'Umut',
+        'gizli_icerik': "Çok gizli içerik"
+    }
+    return render(request, 'python.html', data)
+
+def hakkımızda_view(request):
+    data = {
+        'isim': 'Umut',
+        'gizli_icerik': "Çok gizli içerik"
+    }
+    return render(request, 'hakkımızda.html', data)
 
 def about_view(request):
     data = {

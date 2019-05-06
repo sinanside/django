@@ -13,22 +13,11 @@ SECRET_KEY = 'j889i-vwj()b%flo=a(wquy&2dzc8)-4@0&k47ju+by093(muq'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [u'dizaynschool.pythonanywhere.com']
-
-SUIT_CONFIG = {
-    'ADMIN_NAME': 'Dizaynschool Admin Panel',
-    'MENU': (
-        'sites',
-        {'app': 'auth', 'icon': 'icon-lock', 'models': ('user', 'group')},
-        {'label': 'Settings', 'icon': 'icon-cog', 'models': ('auth.user', 'auth.group')},
-        {'label': 'Support', 'icon': 'icon-question-sign', 'url': '/support/'},
-    ),
-}
+ALLOWED_HOSTS = [u'vps.kodleon.com','arduino.kodleon.com']
 
 # Application definition
 
 INSTALLED_APPS = [
-    'suit',
     'django.contrib.contenttypes',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -78,15 +67,8 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'dizaynschool$dizaynschool',
-        'USER': 'dizaynschool',
-        'PASSWORD': 'pythonmysql2019',
-        'HOST': 'dizaynschool.mysql.pythonanywhere-services.com',
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-            'charset': 'utf8mb4',
-        }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'mydatabase1.sqlite3'),
     }
 }
 
@@ -131,7 +113,7 @@ STATIC_URL = '/static/'
 
 # default static files settings for PythonAnywhere.
 # see https://help.pythonanywhere.com/pages/DjangoStaticFiles for more info
-MEDIA_ROOT = u'/home/dizaynschool/blog/media'
+STATIC_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_URL = '/media/'
-STATIC_ROOT = u'/home/dizaynschool/blog/static'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 STATIC_URL = '/static/'
